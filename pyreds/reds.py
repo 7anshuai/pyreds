@@ -4,7 +4,7 @@ import re
 
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
-from reds.phonetics import metaphone
+from pyreds.phonetics import metaphone
 import redis
 
 stemmer = PorterStemmer()

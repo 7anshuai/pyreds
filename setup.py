@@ -8,7 +8,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-from reds import __version__
+from pyreds import __version__
 
 f = open(os.path.join(os.path.dirname(__file__), 'README.rst'))
 long_description = f.read()
@@ -27,8 +27,8 @@ setup(
     keywords = ['redis', 'full text search'],
     license='MIT',
     install_requires = [
-        'nltk=3.2.5',
-        'redis=2.10.6'
+        'nltk==3.2.5',
+        'redis==2.10.6'
     ],
     classifiers = [
         'Intended Audience :: Developers',

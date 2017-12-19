@@ -3,7 +3,7 @@
 import unittest
 
 import redis
-from reds import reds
+import pyreds.reds as reds
 
 db = redis.StrictRedis(db=1)
 reds.set_client(db)
