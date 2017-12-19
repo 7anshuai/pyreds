@@ -38,7 +38,7 @@ def soundex (term):
     # end if
 
     # convert into uppercase letters
-    term = string.upper(term)
+    term = str(term).upper()
     first_char = term[0]
 
     # translate the string into soundex code according to the table above
@@ -83,7 +83,7 @@ def metaphone (term):
 
     # extension #1 (added 2005-01-28)
     # convert to lowercase
-    term = string.lower(term)
+    term = str(term).lower()
 
     # extension #2 (added 2005-01-28)
     # remove all non-english characters, first
@@ -316,7 +316,7 @@ def metaphone (term):
     # end while
 
     # return metaphone code
-    return code
+    return code.upper()
 
 def nysiis (term):
     "returns New York State Identification and Intelligence Algorithm (NYSIIS) code for the given term"
@@ -459,7 +459,7 @@ def caverphone (term):
     # end if
 
     # convert to lowercase
-    code = string.lower(term)
+    code = str(term).lower()
 
     # remove anything not in the standard alphabet (a-z)
     code = re.sub(r'[^a-z]', '', code)
@@ -543,7 +543,7 @@ def caverphone (term):
     # replace groups of s,t,p,k,f,m,n by its single, upper-case equivalent
     for single_letter in ["s", "t", "p", "k", "f", "m", "n"]:
         otherParts = re.split(single_letter + "+", code)
-        code = string.join(otherParts, string.upper(single_letter))
+        code = string.join(otherParts, str(single_letter).upper())
 
     # replace w[3,h3] by W[3,h3]
     code = re.sub(r'w(h?3)', r'W\1', code)
