@@ -86,8 +86,8 @@ def metaphone (term):
     term = str(term).lower()
 
     # extension #2 (added 2005-01-28)
-    # remove all non-english characters, first
-    term = re.sub(r'[^a-z]', '', term)
+    # remove all non-english and non-number characters, first
+    term = re.sub(r'[^a-z0-9]', '', term)
     if len(term) == 0:
         # nothing left
         return code
