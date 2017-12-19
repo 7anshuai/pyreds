@@ -33,7 +33,7 @@ def create_client():
 
 def create_search(key):
     if not key:
-        raise ValueError('createSearch() requires a redis key for namespacing.')
+        raise ValueError('create_search() requires a redis key for namespacing.')
 
     return Search(key)
 
