@@ -17,6 +17,13 @@ To install pyreds, simply:
 
     $ pip install pyreds
 
+You may need install NLTK Data:
+
+.. code-block:: pycon
+
+    >>> import nltk
+    >>> nltk.download('stopwords')
+
 Getting Started
 ---------------
 
