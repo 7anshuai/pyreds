@@ -17,7 +17,7 @@ types = {
     'or': 'zunionstore'
 }
 
-_ASCII_STR_RE = re.compile(r'\w+', re.A)
+_ASCII_STR_RE = re.compile(r'[a-zA-Z0-9_]+')
 
 _redis_client = None
 
