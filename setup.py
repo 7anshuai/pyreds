@@ -8,8 +8,6 @@ try:
 except ImportError:
     from distutils.core import setup
 
-from pyreds import __version__
-
 f = open(os.path.join(os.path.dirname(__file__), 'README.rst'))
 long_description = f.read()
 f.close()
@@ -17,7 +15,7 @@ f.close()
 setup(
     name = 'pyreds',
     packages = ['pyreds'],
-    version = __version__,
+    version = '0.1.0',
     description = 'Simple full text search module for Python, backed by Redis',
     long_description = long_description,
     author = 'Tan Shuai',
