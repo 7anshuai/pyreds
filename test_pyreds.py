@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import sys
 import unittest
 
 import redis
@@ -7,6 +8,12 @@ import pyreds.reds as reds
 
 db = redis.StrictRedis(db=1)
 reds.set_client(db)
+
+def decode(byte):
+    if sys.version > '3' and type(byte) == bytes:
+        return byte.decode('utf-8')
+    else:
+        return byte
 
 class SearchTestCase(unittest.TestCase):
     def setUp(self):
@@ -59,32 +66,39 @@ class SearchTestCase(unittest.TestCase):
 
     def test_query(self):
         ids = self.search.query('stuff compute').end()
+        ids = [decode(id) for id in ids]
         assert ids == ['6']
 
         ids = self.search.query('Tobi').end()
+        ids = [decode(id) for id in ids]
         assert len(ids) == 3
         assert '0' in ids
         assert '3' in ids
         assert '5' in ids
 
         ids = self.search.query('tobi').end()
+        ids = [decode(id) for id in ids]
         assert len(ids) == 3
         assert '0' in ids
         assert '3' in ids
         assert '5' in ids
 
         ids = self.search.query('bitchy').end()
+        ids = [decode(id) for id in ids]
         assert ids == ['4']
 
         ids = self.search.query('bitchy jane').end()
+        ids = [decode(id) for id in ids]
         assert ids == ['4']
 
         ids = self.search.query('loki and jane').type('or').end()
+        ids = [decode(id) for id in ids]
         assert len(ids) == 2
         assert '2' in ids
         assert '4' in ids
 
         ids = self.search.query('loki and jane', 'or').end()
+        ids = [decode(id) for id in ids]
         assert len(ids) == 2
         assert '2' in ids
         assert '4' in ids
@@ -96,12 +110,14 @@ class SearchTestCase(unittest.TestCase):
         assert ids == []
 
         ids = self.search.query('jane ferret').end()
+        ids = [decode(id) for id in ids]
         assert ids == ['4']
 
         ids = self.search.query('is a').end()
         assert ids == []
 
         ids = self.search.query('simple').end()
+        ids = [decode(id) for id in ids]
         assert len(ids) == 2
         assert '7' in ids
         assert '9' in ids
@@ -111,9 +127,11 @@ class SearchTestCase(unittest.TestCase):
     def test_search(self):
         self.search.index('keyboard cat', 6)
         ids = self.search.query('keyboard').end()
+        ids = [decode(id) for id in ids]
         assert ids == ['6']
 
         ids = self.search.query('cat').end()
+        ids = [decode(id) for id in ids]
         assert ids == ['6']
 
         self.search.remove(6)

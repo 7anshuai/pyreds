@@ -173,8 +173,7 @@ class Query:
             getattr(pipe, cmd[0])(*cmd[1:])
 
         ids = pipe.execute()
-        ids = [id.decode('utf-8') for id in ids[1]]
-        return ids
+        return ids[1]
 
 # Initialize a new `Search` with the given `key`.
 class Search:
