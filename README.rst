@@ -34,7 +34,7 @@ The first thing you'll want to do is create a `Search` instance, which allow you
     >>> import pyreds
     >>> search = pyreds.create_search('pets')
 
-pyreds acts against arbitrary numeric or string based ids, so you could utilize this library with essentially anything you wish, even combining data stores. The following example just uses an array for our "database", containing some strings, which we add to pyreds by calling `Search#index()` padding the body of text and an id of some kind, in this case the index.
+pyreds acts against arbitrary numeric or string based ids, so you could utilize this library with essentially anything you wish, even combining data stores. The following example just uses a list for our "database", containing some strings, which we add to pyreds by calling `Search#index()` padding the body of text and an id of some kind, in this case the index.
 
 .. code-block:: pycon
 
@@ -91,7 +91,7 @@ API
     >>> search = pyreds.create_search(key)
     >>> search.index(text, id)
     >>> search.remove(id)
-    >>> query = search.query(text[, type]) // will return a `Query instance`
+    >>> query = search.query(text[, type]) # will return a `Query` instance
     >>>
     >>> query.between(start, stop)
     >>> query.type(type)
