@@ -15,7 +15,7 @@ f.close()
 setup(
     name = 'pyreds',
     packages = ['pyreds'],
-    version = '0.1.1',
+    version = '0.1.2',
     description = 'Simple full text search module for Python, backed by Redis',
     long_description = long_description,
     author = 'Tan Shuai',

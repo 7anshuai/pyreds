@@ -6,7 +6,7 @@ from pyreds.reds import (
     Search
 )
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 VERSION = tuple(map(int, __version__.split('.')))
 
 __all__ = [
