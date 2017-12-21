@@ -88,10 +88,14 @@ API
 
 .. code-block:: pycon
 
-    >>> pyreds.create_search(key)
-    >>> Search#index(text, id)
-    >>> Search#remove(id)
-    >>> Search#query(text[, type])
+    >>> search = pyreds.create_search(key)
+    >>> search.index(text, id)
+    >>> search.remove(id)
+    >>> query = search.query(text[, type]) // will return a `Query instance`
+    >>>
+    >>> query.between(start, stop)
+    >>> query.type(type)
+    >>> query.end()
 
 LICENSE
 -------

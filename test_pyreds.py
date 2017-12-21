@@ -84,7 +84,15 @@ class SearchTestCase(unittest.TestCase):
         assert '2' in ids
         assert '4' in ids
 
+        ids = self.search.query('loki and jane', 'or').end()
+        assert len(ids) == 2
+        assert '2' in ids
+        assert '4' in ids
+
         ids = self.search.query('loki and jane').end()
+        assert ids == []
+
+        ids = self.search.query('loki and jane', 'invalid type').end()
         assert ids == []
 
         ids = self.search.query('jane ferret').end()
