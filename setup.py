@@ -15,13 +15,13 @@ f.close()
 setup(
     name = 'pyreds',
     packages = ['pyreds'],
-    version = '0.1.2',
+    version = '0.1.3',
     description = 'Simple full text search module for Python, backed by Redis',
     long_description = long_description,
     author = 'Tan Shuai',
     author_email = '7anshuai@gmail.com',
     url = 'https://github.com/7anshuai/pyreds',
-    download_url = 'https://github.com/7anshuai/pyreds/archive/0.1.0.tar.gz',
+    download_url = 'https://github.com/7anshuai/pyreds/archive/0.1.3.tar.gz',
     keywords = ['redis', 'full text search'],
     license='MIT',
     install_requires = [
