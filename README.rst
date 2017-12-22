@@ -1,6 +1,9 @@
 pyreds
 ======
 
+.. image:: https://travis-ci.org/7anshuai/pyreds.svg?branch=master
+    :target: https://travis-ci.org/7anshuai/pyreds
+
 `reds <https://github.com/tj/reds>`_ is a light-weight Redis Search for Node.js.
 
 pyreds is a Python port of reds.
