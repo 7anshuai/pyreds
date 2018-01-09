@@ -130,9 +130,9 @@ def _metaphone_keys(key, words):
 # and `search` instance.
 class Query:
 
-    def __init__(self, txt, search, type):
+    def __init__(self, txt, type, search):
         self.txt = txt
-        self.type(type if type and type in types else 'and')
+        self.type(type if type else 'and')
         self.between(0, -1)
         self.search = search
 
@@ -140,7 +140,7 @@ class Query:
     # "or" and "and".
 
     def type(self, type):
-        self._type = types[type]
+        self._type = types[type] if type and type in types else types['and']
         return self
 
     # Limit search to the specified range of elements.
@@ -220,4 +220,4 @@ class Search:
     # Perform a search on the given `query` returning
     # a `Query` instance.
     def query(self, txt, type = None):
-        return Query(txt, self, type)
+        return Query(txt, type, self)
