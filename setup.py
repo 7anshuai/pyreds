@@ -25,7 +25,7 @@ setup(
     keywords = ['redis', 'full text search'],
     license='MIT',
     install_requires = [
-        'nltk==3.2.5',
+        'nltk==3.4.5',
         'redis==2.10.6'
     ],
     classifiers = [
