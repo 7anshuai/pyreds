@@ -26,7 +26,7 @@ setup(
     license='MIT',
     install_requires = [
         'nltk==3.4.5',
-        'redis==2.10.6'
+        'redis==4.5.3'
     ],
     classifiers = [
         'Intended Audience :: Developers',
